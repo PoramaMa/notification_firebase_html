@@ -73,8 +73,13 @@
             });
         }
         requestPermission();
+
         messaging.onMessage((payload) => {
             console.log("Message received. ", payload);
+            const notification = new Notification("Example notification", {
+                title: payload.notification.title,
+                body: payload.notification.body,
+            })
         });
 
     </script>
